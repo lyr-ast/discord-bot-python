@@ -2,7 +2,7 @@
 
 
 
-probably a bot is a discord bot that has moderatation and fun features
+This bot is based on discord.py. It can moderate your server and has some fun commands  
 
  
 
