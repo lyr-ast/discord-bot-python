@@ -6,14 +6,14 @@ probably a bot is a discord bot that has moderatation and fun features
 
  
 
-# Requirements
+## Requirements
 
   - python [3.8](https://www.python.org/) and up 
   - [discord.py](https://github.com/Rapptz/discord.py) v1.4.1 
 
 
 
-# Contributing
+## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 
