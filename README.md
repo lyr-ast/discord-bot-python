@@ -13,6 +13,8 @@ probably a bot is a discord bot that has moderatation and fun features
 
 
 
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 
 ## License
