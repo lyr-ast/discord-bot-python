@@ -1,4 +1,4 @@
-# probably a bot | discord bot
+# discord bot | discord.py
 
 
 
