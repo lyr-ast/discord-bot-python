@@ -35,4 +35,4 @@ for file in os.listdir("./cogs"):
 
 
 
-bot.run(os.environ["token"])
+bot.run(config["token"])
