@@ -78,7 +78,7 @@ class help(commands.Cog):
         embed.set_footer(text=f"requested by {ctx.author.name} | {ctx.author.id}")
         await ctx.send(embed=embed)
 
-    @userinfo
+    @userinfo.error
     @clear.error
     @ban.error
     @kick.error
