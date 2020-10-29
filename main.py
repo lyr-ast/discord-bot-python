@@ -36,3 +36,4 @@ for file in os.listdir("./cogs"):
 
 
 bot.run(config["token"])
+bot.run(os.environ["token"])
