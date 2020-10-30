@@ -23,7 +23,7 @@ class help(commands.Cog):
         elif name == "staff":
             embed=discord.Embed(title="Prefix: " + config["prefix"])
             embed.set_author(name="Help Mod commands")
-            embed.set_thumbnail(url="https://i.imgur.com/n9l4wht.jpg")
+            embed.set_thumbnail(url=ctx.guild.icon_url)
             embed.add_field(name="clear <num of messages>", value="clears the number of messages given", inline=True)
             embed.add_field(name="mute <@user>", value="mutes the user ", inline=True)
             embed.add_field(name="unmute <@user>", value="unmutes the user", inline=True)

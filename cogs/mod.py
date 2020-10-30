@@ -18,7 +18,9 @@ class help(commands.Cog):
             overwrites = channel.overwrites_for(user)
             overwrites.send_messages = False
             await channel.set_permissions(user, overwrite=overwrites)
-    
+        embed=discord.Embed(description=f"{user.mention} was **muted**")
+        await ctx.send(embed=embed)
+
 
     @commands.command()
     @commands.guild_only()
@@ -30,6 +32,8 @@ class help(commands.Cog):
             overwrites = channel.overwrites_for(user)
             overwrites.send_messages = None
             await channel.set_permissions(user, overwrite=overwrites)
+        embed=discord.Embed(description=f"{user.mention} was **unmuted**")
+        await ctx.send(embed=embed)
 
 
 
@@ -39,18 +43,22 @@ class help(commands.Cog):
     @commands.has_guild_permissions(kick_members=True)
     async def kick(self, ctx, member : discord.Member, *, reason="unspecified reason"):
         embed=discord.Embed(title=f"{member.mention} You Have Been Kicked From The Server By {ctx.author} for {reason}", color=0x6380c5)
-        embed.set_author(name=f"Kicked {member}", icon_url="https://i.imgur.com/n9l4wht.jpg")
+        embed.set_author(name=f"Kicked {member}", icon_url=ctx.guild.icon_url)
         await member.send(embed=embed)
         await member.kick(reason=reason)
+        embed=discord.Embed(description=f"{member.mention} was **`Kicked`** from this server")
+        await ctx.send(embed=embed)
 
     @commands.command()
     @commands.guild_only()
     @commands.has_guild_permissions(ban_members=True)
     async def ban(self, ctx, member : discord.Member, *, reason="unspecified reason"):
         embed=discord.Embed(title=f"{member.mention} You Have Been banned From The Server By {ctx.author} for {reason}", color=0x6380c5)
-        embed.set_author(name=f"Kicked {member}", icon_url="https://i.imgur.com/n9l4wht.jpg")
+        embed.set_author(name=f"Kicked {member}", icon_url=ctx.guild.icon_url)
         await member.send(embed=embed)
         await member.kick(reason=reason)
+        embed=discord.Embed(description=f"{member.mention} was **`banned`** from this server")
+        await ctx.send(embed=embed)
 
     @commands.command()
     @commands.guild_only()
@@ -59,7 +67,7 @@ class help(commands.Cog):
         channel = ctx.message.channel
         await ctx.message.delete()
         await channel.purge(limit=num, check=None, before=None)
-        embed=discord.Embed(title=f"cleared {num} messages ", color=0x6380c5)
+        embed=discord.Embed(description=f"cleared {num} messages ", color=0x6380c5)
         embed.set_footer(text=f"command requested by {ctx.author}")
         await ctx.send(embed=embed)
 
@@ -87,13 +95,13 @@ class help(commands.Cog):
     async def on_command_error(self, ctx, error):
 
         if isinstance(error, commands.MissingPermissions):
-            embed=discord.Embed(title="You don't have the permission to do this command")
+            embed=discord.Embed(description="You don't have the permission to do this command")
             await ctx.send(embed=embed)
         elif isinstance(error, commands.BadArgument):
-            embed=discord.Embed(title="Bad Argument")
+            embed=discord.Embed(description="Bad Argument")
             await ctx.send(embed=embed)
         elif isinstance(error, commands.MissingRequiredArgument):
-            embed=discord.Embed(title="Missing Arguments")
+            embed=discord.Embed(description="Missing Arguments")
             await ctx.send(embed=embed)
 def setup(bot):
     bot.add_cog(help(bot))
