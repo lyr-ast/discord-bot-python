@@ -7,21 +7,22 @@ class members(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.guild_only()
-    @commands.command(ignore_extra=False)
-    async def info(self, ctx):
-        embed=discord.Embed(color=0xa7c1dd)
-        embed.set_author(name="Info")
-        embed.set_thumbnail(url="https://i.imgur.com/n9l4wht.jpg")
-        embed.add_field(name="Hypers Galaxy Info:", value="Hypers Galaxy Is A Chill Server For Everyone To Enjoy!! ", inline=False)
-        embed.add_field(name="Bot Made By not a bot", value="And Hosted By Hyper", inline=False)
-        embed.set_footer(text="Created in 2020")
-        await ctx.send(embed=embed)
+
 
     @commands.guild_only()
     @commands.command(ignore_extra=False)
     async def serverinfo(self, ctx):
-        pass
+        embed=discord.Embed(title=f"ID: {ctx.guild.id}")
+        embed.set_author(name=ctx.guild.name)
+        embed.set_thumbnail(url=ctx.guild.icon_url)
+        embed.add_field(name="members", value=ctx.guild.member_count, inline=True)
+        embed.add_field(name="Region", value=ctx.guild.region, inline=True)
+        embed.add_field(name="Channels", value=f"Categories {len(ctx.guild.categories)} \nText: {len(ctx.guild.text_channels)}\n Voice: {len(ctx.guild.voice_channels)}", inline=False)
+        embed.add_field(name="Owner", value=ctx.guild.owner, inline=False)
+        embed.add_field(name="created on", value=ctx.guild.created_at.strftime("%A, %B %d %Y \n %H:%M %p"), inline=False)
+        embed.add_field(name="boosts", value=ctx.guild.premium_subscription_count, inline=True)
+        await ctx.send(embed=embed)
+
     
     @commands.guild_only()
     @commands.command(ignore_extra=False)
@@ -69,11 +70,12 @@ class members(commands.Cog):
         await asyncio.sleep(1)
         await mes.edit(content=f"Your number is {num}")
 
-
+    @commands.guild_only()
     @commands.command(name="8ball")
     async def _8ball(self, ctx, *, question=None):
         if question == None:
-            await ctx.send("please type your question")
+            return await ctx.send("You didn't specify a question")
+           
         responses = ["It is certain", "It is decidedly so", "Without a doubt", "Yes, definitely",
                "You may rely on it", "As I see it, yes", "Most Likely", "Outlook Good",
                "Yes", "Signs point to yes", "Reply hazy, try again", "Ask again later",

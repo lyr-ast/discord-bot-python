@@ -9,12 +9,12 @@ class systems(commands.Cog):
         self.bot = bot
 
     @commands.Cog.listener()
-    async def on_member_join(self, member):
+    async def on_member_join(self, member, ctx):
         channel = self.bot.get_channel(config["welcome_channel_id"])
 
         embed=discord.Embed(title="Pls Read The Rules!!", description="And Enjoy The Server!!", color=0x4965bc)
         embed.set_author(name=f"{member}, Welcome To Our Server!!!", icon_url=member.avatar_url)
-        embed.set_thumbnail(url="https://i.imgur.com/n9l4wht.jpg")
+        embed.set_thumbnail(url=ctx.guild.icon_url)
         embed.set_footer(text="Created In 2020")
         await channel.send(embed=embed)
 
