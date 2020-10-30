@@ -9,7 +9,7 @@ This bot is based on discord.py. It can moderate your server and has some fun co
 ## Requirements
 
   - python [3.8](https://www.python.org/) and up 
-  - [discord.py](https://github.com/Rapptz/discord.py) v1.4.1 
+  - [discord.py](https://github.com/Rapptz/discord.py) v1.5
 
 
 
