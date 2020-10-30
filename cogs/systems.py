@@ -20,7 +20,18 @@ class systems(commands.Cog):
 
 
 
-
+    @commands.guild_only()
+    @commands.command()
+    async def verify(self, ctx):
+        if (ctx.channel.id == 768318211573415955):
+            for i in ["Member", "Verified"]:
+                role = discord.utils.get(ctx.guild.roles, name=i)
+                await ctx.author.add_roles(role)
+            await ctx.message.delete()
+        else:
+            return
+        
+    
 
 def setup(bot):
     bot.add_cog(systems(bot))

@@ -4,9 +4,11 @@ import json
 import os
 
 
+intents = discord.Intents.default()
+intents.members = True
 
 config = json.load(open("config.json"))
-bot = commands.Bot(command_prefix=config["prefix"], help_command=None, case_insensitive=True)
+bot = commands.Bot(command_prefix=config["prefix"], help_command=None, case_insensitive=True, intents=intents)
 
 @bot.event
 async def on_ready():
@@ -35,5 +37,5 @@ for file in os.listdir("./cogs"):
 
 
 
-#bot.run(config["token"])
-bot.run(os.environ["token"])
+#bot.run(os.environ["token"])
+bot.run(config["token"])
