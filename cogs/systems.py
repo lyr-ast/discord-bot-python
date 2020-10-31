@@ -14,7 +14,7 @@ class systems(commands.Cog):
 
         embed=discord.Embed(title="Pls Read The Rules!!", description="And Enjoy The Server!!", color=0x4965bc)
         embed.set_author(name=f"{member}, Welcome To Our Server!!!", icon_url=member.avatar_url)
-        embed.set_thumbnail(url=ctx.guild.icon_url)
+        embed.set_thumbnail(url="https://i.imgur.com/n9l4wht.jpg")
         embed.set_footer(text="Created In 2020")
         await channel.send(embed=embed)
 
