@@ -1,3 +1,6 @@
+# The developement of this bot is stopped for now
+
+
 # discord bot | discord.py
 
 
