@@ -1,4 +1,5 @@
-# a simple discord bot **it might be broken as it has not been updated in a while**
+# a simple discord bot 
+(**it might be broken as it has not been updated in a while**)
 
 # discord bot | discord.py
 
