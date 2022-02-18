@@ -1,5 +1,4 @@
-# The developement of this bot is stopped for now
-
+# a simple discord bot **it might be broken as it has not been updated in a while**
 
 # discord bot | discord.py
 
